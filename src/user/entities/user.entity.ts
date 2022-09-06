@@ -2,7 +2,7 @@
  * @Author: chenlibin
  * @Date: 2022-08-08 17:59:48
  * @LastEditors: chenlibin
- * @LastEditTime: 2022-08-08 18:00:13
+ * @LastEditTime: 2022-09-06 14:18:40
  * @FilePath: /src/user/entities/user.entity.ts
  * @Description:
  */
@@ -14,7 +14,7 @@ export class User {
   id: number;
   @Column()
   userName: string;
-  @Column()
+  @Column({ select: false })
   password: string;
   @Column()
   email: string;
