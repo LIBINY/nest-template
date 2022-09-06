@@ -2,7 +2,7 @@
  * @Author: chenlibin
  * @Date: 2022-08-08 17:59:48
  * @LastEditors: chenlibin
- * @LastEditTime: 2022-09-05 17:27:52
+ * @LastEditTime: 2022-09-06 14:22:33
  * @FilePath: /src/user/user.controller.ts
  * @Description:
  */
@@ -14,6 +14,8 @@ import {
   Patch,
   Param,
   Delete,
+  ClassSerializerInterceptor,
+  UseInterceptors,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -21,6 +23,7 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('用户信息')
+@UseInterceptors(ClassSerializerInterceptor)
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
